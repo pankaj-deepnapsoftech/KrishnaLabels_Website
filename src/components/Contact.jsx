@@ -1,164 +1,68 @@
-import React, { useRef, useEffect } from "react";
-import "./scrollbar.css";
+import React from "react";
 
-const RatingsReviews = () => {
-    const scrollRef = useRef(null);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (scrollRef.current) {
-                scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-            }
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
-    return (
-        <div className="max-w-4xl mx-auto p-6 shadow-md rounded-2xl mt-10 mb-10">
-            <div className="flex justify-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-white bg-blue-800 inline-block px-6 py-2 rounded-2xl mb-10">
-                    Welcome Our Reviews
-                </h2>
-            </div>
-
-            <div className="flex justify-center">
-                <h2 className="text-sky-600 font-semibold pb-5">Real reviews from real customers</h2>
-            </div>
-
-            <div className="flex flex-col md:flex-row md:justify-between mb-6">
-                <div className="mb-4 md:mb-0">
-                    <div className="text-4xl font-bold text-yellow-500">
-                        4.2<span className="text-black text-2xl">/5</span>
-                    </div>
-                    <div className="text-sm text-gray-600">Reviewed by 119 Users</div>
-                </div>
-
-                <div className="flex-1 md:ml-8">
-                    {[5, 4, 3, 2, 1].map(stars => {
-                        const percent = { 5: 56, 4: 20, 3: 2, 2: 8, 1: 14 }[stars];
-                        return (
-                            <div key={stars} className="flex items-center mb-1">
-                                <span className="w-6 text-sm">{stars}★</span>
-                                <div className="w-full bg-gray-200 h-2 rounded-full mx-2">
-                                    <div
-                                        className="bg-yellow-500 h-2 rounded-full"
-                                        style={{ width: `${percent}%` }}
-                                    ></div>
-                                </div>
-                                <span className="w-10 text-sm text-right">{percent}%</span>
-                            </div>
-                        );
-                    })}
-                </div>
-
-                <div className="md:ml-8">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center">User Satisfaction</h3>
-                    {[
-                        { label: "Response", percent: 84 },
-                        { label: "Quality", percent: 77 },
-                        { label: "Delivery", percent: 83 },
-                    ].map(({ label, percent }) => (
-                        <div key={label} className="mb-2">
-                            <div className="flex justify-between text-sm">
-                                <span>{label}</span>
-                                <span>{percent}%</span>
-                            </div>
-                            <div className="w-full bg-gray-200 h-2 rounded-full">
-                                <div
-                                    className="bg-green-500 h-2 rounded-full"
-                                    style={{ width: `${percent}%` }}
-                                ></div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <h3 className="text-xl font-semibold mb-4">Most Relevant Reviews</h3>
-
-            <div className="relative">
-                <button
-                    onClick={() => scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' })}
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md"
-                >
-                    ◀
-                </button>
-
-                <div
-                    ref={scrollRef}
-                    className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-6"
-                >
-                    {[
-                        {
-                            name: "Mrs. Sahani",
-                            location: "New Delhi, Delhi",
-                            date: "08-March-25",
-                            product: "Printed Ribbons",
-                            content: "",
-                        },
-                        {
-                            name: "Aryan Bijay",
-                            location: "Pottore, Kerala",
-                            date: "21-February-25",
-                            product: "Woven Label",
-                            content: "",
-                        },
-                        {
-                            name: "Ravi Kumar",
-                            location: "Lucknow, UP",
-                            date: "05-March-25",
-                            product: "Tag Labels",
-                            content: "Great experience!",
-                        },
-                        {
-                            name: "NUPUR AGGARWAL",
-                            location: "Amritsar, Punjab",
-                            date: "18-November-24",
-                            product: "Printed Satin Ribbon",
-                            content: "Good",
-                        },
-                        {
-                            name: "Ayesha Mehra",
-                            location: "Mumbai, Maharashtra",
-                            date: "01-April-25",
-                            product: "Twill Tapes",
-                            content: "Loved the print and quality!",
-                        },
-                    ].map(({ name, location, date, product, content }, i) => (
-                        <div key={i} className="bg-gray-50 min-w-[250px] sm:min-w-[280px] p-4 rounded-xl shadow-sm flex-shrink-0">
-                            <div className="flex items-center mb-2">
-                                <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center font-bold text-white">
-                                    {name[0]}
-                                </div>
-                                <div className="ml-3">
-                                    <div className="font-semibold">{name}</div>
-                                    <div className="text-xs text-gray-500">{location}</div>
-                                </div>
-                            </div>
-                            <div className="text-xs text-gray-500 mb-2">{date}</div>
-                            <div className="text-sm mb-1">
-                                <span className="font-medium">Product Name</span>: {product}
-                            </div>
-                            {content && <div className="text-sm">{content}</div>}
-                        </div>
-                    ))}
-                </div>
-
-                <button
-                    onClick={() => scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' })}
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md"
-                >
-                    ▶
-                </button>
-            </div>
-
-            <div className="w-full flex justify-center mt-6">
-                <button className="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md">
-                    View More Reviews
-                </button>
-            </div>
+const Contact = () => {
+  return (
+    <div className="max-w-5xl mx-auto my-24 mt-60 m-auto px-4">
+    <div className="bg-white shadow-xl rounded-xl overflow-hidden p-8 border border-gray-200">
+      <div className="grid md:grid-cols-2 gap-10">
+        {/* Contact Details */}
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-800">📞 Contact Details</h2>
+          <div>
+            <p className="text-gray-700 font-semibold">Contact Person:</p>
+            <p className="text-gray-600">Raja Mallick (DIRECTOR)</p>
+          </div>
+          <div>
+            <p className="text-gray-700 font-semibold">Address:</p>
+            <p className="text-gray-600 leading-relaxed">
+              <strong>Krishna Labels INC.</strong><br />
+              W.Z. - 81-A, Vashist Park, Pankha Road, Street No. 12,<br />
+              New Delhi - 110046, Delhi, India
+            </p>
+          </div>
+          <div>
+            <p className="text-gray-700 font-semibold">Call Us:</p>
+            <p className="text-gray-600">08048977061</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-5 py-2 rounded shadow-md font-medium transition">
+              Send SMS
+            </button>
+            <span className="text-blue-600 hover:underline cursor-pointer">Other Contact Details</span>
+          </div>
         </div>
-    );
+  
+        {/* Contact Form */}
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-800">Contact Us</h2>
+          <div className="bg-blue-100 border-l-4 border-blue-500 p-4 rounded text-sm text-gray-800">
+            <p className="font-semibold">To Get Best QUOTES, Describe Your Requirements:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li>What Are You Looking For</li>
+              <li>Features / Specifications</li>
+              <li>Application / Usage</li>
+              <li>Minimum Order Quantity, etc</li>
+            </ul>
+          </div>
+          <input
+            type="tel"
+            placeholder="Enter your number"
+            className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="text"
+            placeholder="Enter your name"
+            className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button className="w-full bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-md font-semibold transition">
+            Contact Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  );
 };
 
-export default RatingsReviews;
+export default Contact;
