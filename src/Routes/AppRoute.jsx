@@ -11,6 +11,9 @@ import Leets from "../page/Leets";
 import Contect2 from "../page/ContectData";
 import ProductTable from "../page/ProductTable";
 import CreateProduct from "../page/CreateProduct";
+import AllReviews from "../components/AllReviews";
+import BookDemo from "../components/BookDemo";
+import OurProduct from "../components/OurProduct";
 
 const AppRoute = () => {
     return (
