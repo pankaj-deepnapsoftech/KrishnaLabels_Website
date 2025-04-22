@@ -3,14 +3,13 @@ import {
   RiAppsLine,
   RiContactsFill,
   RiDashboardHorizontalFill,
-  RiMenu2Line
+  RiMenu2Line,
 } from "react-icons/ri";
 import { IoCreate } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaTableList } from "react-icons/fa6";
-
 
 const Header = () => {
   const [checkMenu, setCheckMenu] = useState(false);
@@ -19,8 +18,15 @@ const Header = () => {
     <>
       {/* Mobile Menu Button */}
       <div className="absolute top-5  left-4 z-50 md:hidden">
-        <div onClick={() => setCheckMenu(!checkMenu)} >
-          {checkMenu ? <IoCloseSharp size={30} className=" transition-all duration-500 opacity-100  text-white absolute left-[12rem] " /> : <RiMenu2Line size={30} />}
+        <div onClick={() => setCheckMenu(!checkMenu)}>
+          {checkMenu ? (
+            <IoCloseSharp
+              size={30}
+              className=" transition-all duration-500 opacity-100  text-white absolute left-[12rem] "
+            />
+          ) : (
+            <RiMenu2Line size={30} />
+          )}
         </div>
       </div>
 
@@ -33,8 +39,6 @@ const Header = () => {
     md:translate-x-0 md:static md:w-[250px]
   `}
       >
-
-
         <div className="text-3xl flex items-center font-extrabold mb-10 mt-10 tracking-tight text-white">
           <RiDashboardHorizontalFill className="mr-2" />
           Dashboard
@@ -124,5 +128,5 @@ const Header = () => {
     </>
   );
 };
-
+                                 
 export default Header;
