@@ -22,8 +22,13 @@ const AppRoute = () => {
                 <Route path="/bookDemo" element={<BookDemo/>}/>
                 <Route path="/products" element={<OurProduct/>}/>
             </Route>
+            <Route element={<AdminLayout />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/leets" element={<Leets/>} />
+                <Route path="/contect" element={<Contect2/>} />
+            </Route>
         </Routes>
-    )
-}
+    );
+};
 
-export default AppRoute
+export default AppRoute;
