@@ -8,6 +8,7 @@ import BlogHome from '../components/Blog'
 import AllReviews from '../components/AllReviews'
 import BookDemo from '../components/BookDemo'
 import OurProduct from '../components/OurProduct'
+import AdminLayout from './AdminLayout'
 
 
 const AppRoute = () => {
