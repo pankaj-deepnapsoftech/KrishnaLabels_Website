@@ -2,9 +2,14 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12 mt-50 mb-20">
+    <div className="max-w-5xl mx-auto px-6 py-12 mt-40 mb-20">
       <div className="bg-white shadow-lg rounded-xl p-8 space-y-6">
-        <h1 className="text-3xl font-bold text-center text-blue-800">About Us</h1>
+      <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
+  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
+    About US
+  </span>
+</h2>
+
 
         <p className="text-gray-700 text-lg">
           <strong>“Krishna Labels INC”</strong> has been incepted in the year 2010 and since then every day are efficiently engaged in manufacturing and exporting superior quality products to our clients. We have been famed quality in maintaining our line of products which includes Clothing Labels & Tags, Printed & Woven Labels and Barcode Stickers. All these products are served based on clients specifications. We have a team of quality analyst to check the quality of our products and we also hold an expertise in the fabrication of all our ranges.

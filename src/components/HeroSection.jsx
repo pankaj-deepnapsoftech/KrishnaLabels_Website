@@ -3,8 +3,8 @@ import React from "react";
 export default function HeroSection() {
   return (
     <>
-      <section className="relative w-full h-[100vh] overflow-hidden pt-20">
-       
+      <section className="relative w-full min-h-screen overflow-hidden pt-20">
+
         <video
           autoPlay
           loop
@@ -14,47 +14,44 @@ export default function HeroSection() {
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
         >
           <source src="/Hero-video.mp4" type="video/mp4" />
-        </video> 
+        </video>
 
-     
-        <div className="relative z-20 flex flex-col items-center justify-center text-center h-full w-full px-4 text-white">
-          <h1 className="text-3xl md:text-5xl font-bold mt-20 mb-4 text-blue-800">
-            Clothing Label & Tag <br />
+        <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-4 sm:px-6 md:px-12 text-white bg-opacity-40">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-blue-800 drop-shadow-md">
+            Clothing Label & Tag <br className="hidden sm:block" />
             Manufacturer Since 2010
           </h1>
 
-          <p className="text-sm md:text-lg max-w-3xl mb-6 font-medium text-white">
-            At KRISHNA LABELS INC, we’ve spent over 17 years helping brands bring their identity to life through premium, custom made garment accessories. We are specialized in crafting everything from woven labels, printed labels, tag, tag seal, premium satin ribbon, paper bag to a wide range of personalized apparel accessories—designed to match your exact specifications.
-            Whether you're a fashion brand, boutique, or manufacturer, we provide tailored solutions that blend function, fashion, and flawless craftsmanship. From concept to creation, our team ensures that each item is made using superior quality materials and ethical, sustainable production practices.
-            <br />
-            At KRISHNA LABELS INC, we don’t just make accessories—we enhance brands. Every detail is designed with care, every product crafted to ensure your brand stands out in a competitive market. Not just labels—your identity, stitched.
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-4xl mb-8 font-medium text-white leading-relaxed">
+            At <strong>KRISHNA LABELS INC</strong>, we’ve spent over 17 years helping brands bring their identity to life through premium, custom-made garment accessories.
+            From woven labels, printed labels, tags, satin ribbons to paper bags—each item is crafted with precision.
+            <br /><br />
+            Whether you're a fashion brand or boutique, we provide tailored solutions that blend style and sustainability. We don’t just make accessories—we enhance brands.
           </p>
 
           <a
             href="/contact"
-            className="bg-blue-700 font-semibold px-8 py-4 rounded-full text-lg text-white"
+            className="bg-blue-700 hover:bg-blue-800 transition text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full text-base sm:text-lg shadow-lg"
           >
-            Get an Instant Quote Now!                                                                                                                                                                                     
+            Get an Instant Quote Now!
           </a>
         </div>
       </section>
-
-      <section className="flex flex-wrap justify-center items-center gap-8 mt-14 mb-14 p-8 bg-white">
-        <div className="bg-red-500 text-white px-12 py-8 rounded-3xl shadow-lg font-semibold text-2xl">
-          Custom Labels
-        </div>
-        <div className="bg-orange-500 text-white px-12 py-8 rounded-3xl shadow-lg font-semibold text-2xl">
-          Hand Tag
-        </div>
-        <div className="bg-blue-500 text-white px-12 py-8 rounded-3xl shadow-lg font-semibold text-2xl">
-          Printed Ribbon
-        </div>
-        <div className="bg-pink-500 text-white px-12 py-8 rounded-3xl shadow-lg font-semibold text-2xl">
-          Paper Bag
-        </div>
+      <section className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-white">
+        {[
+          { title: "Custom Labels", bg: "bg-red-600" },
+          { title: "Hand Tag", bg: "bg-orange-600" },
+          { title: "Printed Ribbon", bg: "bg-blue-600" },
+          { title: "Paper Bag", bg: "bg-pink-600" },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className={`${item.bg} text-white px-6 py-4 sm:px-8 sm:py-6 md:px-10 md:py-8 rounded-2xl shadow-xl font-semibold text-base sm:text-lg md:text-xl text-center w-full max-w-[180px] sm:max-w-[200px] md:max-w-[220px] transition transform hover:scale-105`}
+          >
+            {item.title}
+          </div>
+        ))}
       </section>
-
     </>
   );
 }
-

@@ -30,13 +30,16 @@ const blogPosts = [
     image: "/Blog-1.png",
     slug: "woven-vs-printed-labels"
   },
-
 ];
 
 const BlogHome = () => {
   return (
-    <div className="max-w-6xl mx-auto p-6 m-auto mt-50 mb-20 ">
-      <h1 className="text-3xl font-bold mb-8 text-blue-800">Our Blog</h1>
+    <div className="max-w-6xl mx-auto p-6 m-auto mt-40 mb-20 ">
+      <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
+  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
+  Our Blog
+  </span>
+</h2>
       <div className="grid md:grid-cols-2 gap-6">
         {blogPosts.map((post) => (
           <Link key={post.id} to={`/blog/${post.slug}`} className="border-b-2 rounded-lg overflow-hidden shadow hover:shadow-lg transition">
@@ -53,3 +56,4 @@ const BlogHome = () => {
 };
 
 export default BlogHome;
+
