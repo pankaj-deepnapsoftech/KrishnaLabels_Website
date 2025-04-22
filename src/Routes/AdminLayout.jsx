@@ -5,8 +5,8 @@ import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
   return (
-    <div >
-      <div className=" flex w-[100%] ">
+    <div className=" w-full " >
+      <div className=" flex w-[100%] h-[92vh] ">
         <Header />
         <Outlet />
       </div>
