@@ -1,41 +1,74 @@
 import React, { useRef, useEffect } from "react";
 import "./scrollbar.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const RatingsReviews = () => {
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
+  const scrollByAmount = 300;
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -scrollByAmount, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: scrollByAmount, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") scrollRight();
+      else if (e.key === "ArrowLeft") scrollLeft();
+    };
+
     const interval = setInterval(() => {
       if (scrollRef.current) {
-        scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRight();
+        }
       }
     }, 3000);
-    return () => clearInterval(interval);
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 shadow-md rounded-2xl mt-10 mb-10 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div className="flex justify-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white bg-blue-800 inline-block px-6 py-2 rounded-2xl mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white bg-blue-800 inline-block px-6 py-2 rounded-2xl mb-6">
           Welcome Our Reviews
         </h2>
       </div>
 
       <div className="flex justify-center">
-        <h2 className="text-sky-600 font-semibold pb-5">
+        <h3 className="text-sky-600 text-center font-semibold pb-5 text-sm sm:text-base">
           Real reviews from real customers
-        </h2>
+        </h3>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between mb-6">
-        <div className="mb-4 md:mb-0">
-          <div className="text-4xl font-bold text-yellow-500">
-            4.2<span className="text-black text-2xl">/5</span>
+      <div className="flex flex-col md:flex-row md:justify-between gap-6 mb-8">
+        <div>
+          <div className="text-3xl sm:text-4xl font-bold text-yellow-500">
+            4.2<span className="text-black text-xl sm:text-2xl">/5</span>
           </div>
           <div className="text-sm text-gray-600">Reviewed by 119 Users</div>
         </div>
 
-        <div className="flex-1 md:ml-8">
+        <div className="flex-1">
           {[5, 4, 3, 2, 1].map((stars, i) => {
             const percents = [56, 20, 2, 8, 14];
             return (
@@ -53,10 +86,8 @@ const RatingsReviews = () => {
           })}
         </div>
 
-        <div className="md:ml-8">
-          <h3 className="text-lg font-semibold mb-2 flex items-center">
-            User Satisfaction
-          </h3>
+        <div>
+          <h3 className="text-lg font-semibold mb-2">User Satisfaction</h3>
           {[
             { label: "Response", percent: 84 },
             { label: "Quality", percent: 77 },
@@ -78,12 +109,27 @@ const RatingsReviews = () => {
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold mb-4">Most Relevant Reviews</h3>
+      <h3 className="text-xl font-semibold mb-4 text-center md:text-left">
+        Most Relevant Reviews
+      </h3>
 
-      <div className="relative overflow-hidden">
+      <div className="relative">
+        <button
+          onClick={scrollLeft}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md"
+        >
+          <FaChevronLeft />
+        </button>
+        <button
+          onClick={scrollRight}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md"
+        >
+          <FaChevronRight />
+        </button>
+
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-6"
+          className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-8 sm:px-12"
         >
           {[
             {
@@ -124,14 +170,16 @@ const RatingsReviews = () => {
           ].map(({ name, location, date, product, content }, i) => (
             <div
               key={i}
-              className="bg-gray-50 min-w-[280px] p-4 rounded-xl shadow-sm"
+              className="bg-gray-50 min-w-[260px] sm:min-w-[300px] p-4 rounded-xl shadow-sm"
             >
               <div className="flex items-center mb-2">
                 <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center font-bold text-white">
                   {name[0]}
                 </div>
                 <div className="ml-3">
-                  <div className="font-semibold">{name}</div>
+                  <div className="font-semibold text-sm sm:text-base">
+                    {name}
+                  </div>
                   <div className="text-xs text-gray-500">{location}</div>
                 </div>
               </div>
@@ -146,7 +194,10 @@ const RatingsReviews = () => {
       </div>
 
       <div className="w-full flex justify-center mt-6">
-        <button className="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md">
+        <button
+          onClick={() => navigate("/allReviews")}
+          className="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 transition"
+        >
           View More Reviews
         </button>
       </div>

@@ -8,9 +8,8 @@ const Certifications = () => {
           Certifications
         </h2>
       </div>
-
+      
       <div className="flex flex-wrap justify-center gap-8">
-        {/* Certificate 1 */}
         <div className="w-full md:w-[45%] lg:w-[30%] p-6 shadow-md rounded-bl-3xl text-center bg-white flex flex-col justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-800">OEKO-TEX®</h3>
@@ -26,7 +25,6 @@ const Certifications = () => {
           </button>
         </div>
 
-        {/* Certificate 2 */}
         <div className="w-full md:w-[45%] lg:w-[30%] p-6 shadow-md rounded-bl-3xl text-center bg-white flex flex-col justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-800">Global Recycled Standard</h3>
@@ -42,7 +40,6 @@ const Certifications = () => {
           </button>
         </div>
 
-        {/* Certificate 3 (example) */}
         <div className="w-full md:w-[45%] lg:w-[30%] p-6 shadow-md rounded-bl-3xl text-center bg-white flex flex-col justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-800">ISO 9001:2015</h3>

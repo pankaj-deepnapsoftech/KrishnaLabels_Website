@@ -39,6 +39,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -47,6 +48,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -55,6 +57,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -63,6 +66,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -71,6 +75,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -79,6 +84,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
@@ -87,6 +93,7 @@ const ReviewPanel = () => {
               </div>
             ))}
           </div>
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
