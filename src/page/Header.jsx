@@ -3,14 +3,13 @@ import {
   RiAppsLine,
   RiContactsFill,
   RiDashboardHorizontalFill,
-  RiMenu2Line
+  RiMenu2Line,
 } from "react-icons/ri";
 import { IoCreate } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaTableList } from "react-icons/fa6";
-
 
 const Header = () => {
   const [checkMenu, setCheckMenu] = useState(false);
@@ -19,8 +18,15 @@ const Header = () => {
     <>
       {/* Mobile Menu Button */}
       <div className="absolute top-5  left-4 z-50 md:hidden">
-        <div onClick={() => setCheckMenu(!checkMenu)} >
-          {checkMenu ? <IoCloseSharp size={30} className=" transition-all duration-500 opacity-100  text-white absolute left-[12rem] " /> : <RiMenu2Line size={30} />}
+        <div onClick={() => setCheckMenu(!checkMenu)}>
+          {checkMenu ? (
+            <IoCloseSharp
+              size={30}
+              className=" transition-all duration-500 opacity-100  text-white absolute left-[12rem] "
+            />
+          ) : (
+            <RiMenu2Line size={30} />
+          )}
         </div>
       </div>
 
@@ -34,8 +40,6 @@ const Header = () => {
     md:translate-x-0 md:static md:w-[250px]
   `}
       >
-
-
         <div className="text-3xl flex items-center font-extrabold mb-10 mt-10 tracking-tight text-white">
           <RiDashboardHorizontalFill className="mr-2" />
           Dashboard
@@ -46,7 +50,9 @@ const Header = () => {
             to="/dashboard"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2 rounded-md transition-all duration-200 
-     ${isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"} text-white`
+     ${
+       isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"
+     } text-white`
             }
           >
             <RiDashboardLine className="text-xl text-white" />
@@ -57,7 +63,9 @@ const Header = () => {
             to="/leets"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4  py-2 rounded-md transition-all duration-200 
-     ${isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"} text-white`
+     ${
+       isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"
+     } text-white`
             }
           >
             <RiAppsLine className="text-xl text-white" />
@@ -68,7 +76,9 @@ const Header = () => {
             to="/contect"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2 rounded-md transition-all duration-200 
-     ${isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"} text-white`
+     ${
+       isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"
+     } text-white`
             }
           >
             <RiContactsFill className="text-xl text-white" />
@@ -78,7 +88,9 @@ const Header = () => {
             to="/createproduct"
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2 rounded-md transition-all duration-200 
-     ${isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"} text-white`
+     ${
+       isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"
+     } text-white`
             }
           >
             <IoCreate className="text-xl text-white" />
@@ -87,19 +99,19 @@ const Header = () => {
           <NavLink
             to="/producttable"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2 rounded-md transition-all duration-200 
-     ${isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"} text-white`
+              `flex items-center gap-3 px-4 py-2 rounded-md transition-all duration-200                                             
+     ${
+       isActive ? "bg-blue-400 font-bold shadow" : "hover:bg-white/10"
+     } text-white`
             }
           >
-            <FaTableList
-              className="text-xl text-white" />
+            <FaTableList className="text-xl text-white" />
             <span className="text-white">Product Table</span>
           </NavLink>
-
         </nav>
       </aside>
     </>
   );
 };
-
+                                 
 export default Header;

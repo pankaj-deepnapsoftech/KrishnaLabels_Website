@@ -14,6 +14,7 @@ import CreateProduct from "../page/CreateProduct";
 import AllReviews from "../components/AllReviews";
 import BookDemo from "../components/BookDemo";
 import OurProduct from "../components/OurProduct";
+import LoginPage from "../components/Login";
 
 const AppRoute = () => {
     return (
@@ -27,6 +28,7 @@ const AppRoute = () => {
                 <Route path="/bookDemo" element={<BookDemo/>}/>
                 <Route path="/products" element={<OurProduct/>}/>
             </Route>
+               <Route path="/login" element={<LoginPage/>}/> 
             <Route element={<AdminLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/leets" element={<Leets/>} />
