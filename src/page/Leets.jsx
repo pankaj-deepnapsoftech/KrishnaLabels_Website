@@ -14,7 +14,7 @@ const statusColors = {
 
 const Leets = () => {
   return (
-    <div className="w-full bg-white rounded-xl overflow-hidden shadow-md p-4">
+    <div className="w-full mt-15   md:w-[100%] bg-white rounded-xl overflow-hidden shadow-md p-4    ">
       <h2 className="text-xl font-bold text-gray-700 mb-4">User Requests</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
@@ -41,7 +41,9 @@ const Leets = () => {
                     {user.status}
                   </span>
                 </td>
-                <td className="py-3 px-4 text-gray-700 font-medium">{user.name}</td>
+                <td className="py-3 px-4 text-gray-700 font-medium">
+                  {user.name}
+                </td>
                 <td className="py-3 px-4 text-gray-600">{user.id}</td>
                 <td className="py-3 px-4 text-gray-600">{user.requests}</td>
               </tr>

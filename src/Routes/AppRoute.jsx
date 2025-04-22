@@ -9,6 +9,8 @@ import AdminLayout from "./AdminLayout";
 import Dashboard from "../page/Dashboard";
 import Leets from "../page/Leets";
 import Contect2 from "../page/ContectData";
+import ProductTable from "../page/ProductTable";
+import CreateProduct from "../page/CreateProduct";
 
 const AppRoute = () => {
     return (
@@ -23,6 +25,8 @@ const AppRoute = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/leets" element={<Leets/>} />
                 <Route path="/contect" element={<Contect2/>} />
+                <Route path="/createproduct" element={<CreateProduct/>} />
+                <Route path="/producttable" element={<ProductTable/>} />
             </Route>
         </Routes>
     );
