@@ -4,13 +4,12 @@ import { axiosHandler } from "../../utils/axiosHandler";
 const ContactContext = createContext();
 
 const ContactContextProvider = ({ children }) => {
-<<<<<<< HEAD
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);  
-  const [error, setError] = useState(null);       
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getContactData = async () => {
-    setLoading(true);  
+    setLoading(true);
     try {
       const res = await axiosHandler.get("/contact/lead-get");
       setData(res.data);
@@ -18,17 +17,7 @@ const ContactContextProvider = ({ children }) => {
       setError("Failed to fetch contact data");
       console.error(err);
     } finally {
-      setLoading(false); 
-=======
-    const [data, setdate] = useState([])
-    const getContactdata = async () => {
-        try {
-            const res = await axiosHandler.get("/contact/get-contact")
-           setdate(res.data);
-        } catch (error) {
-            console.log(error);
-        }
->>>>>>> 516ae42a453d09ecf2e34922fee55bd22a8b0957
+      setLoading(false);
     }
   };
 
@@ -40,7 +29,6 @@ const ContactContextProvider = ({ children }) => {
       console.error("Error creating contact: ", err);
     }
   };
-
 
   useEffect(() => {
     getContactData();
