@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const LabelTypes = () => {
   const labels = [
     {
@@ -50,7 +51,7 @@ const LabelTypes = () => {
   ];
 
   return (
-    <div className="py-12 px-4 md:px-20 bg-white">
+    <div className="py-12 bg-gradient-to-br from-blue-50 to-blue-100 px-4 md:px-20 bg-white">
       <h2 className="text-center text-green-800 font-bold text-lg mb-8 uppercase">
         What type of label do you need?
       </h2>

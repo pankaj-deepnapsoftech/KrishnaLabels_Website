@@ -37,26 +37,26 @@ export default function HeroSection() {
           <a
             href="/contact"
             className="bg-blue-700 hover:bg-blue-800 transition text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full text-base sm:text-lg shadow-lg"
-          >
+          >   
             Get an Instant Quote Now!
           </a>
         </div>
       </section>
-      <section className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-white">
-        {[
-          { title: "Custom Labels", bg: "bg-red-600" },
-          { title: "Hand Tag", bg: "bg-orange-600" },
-          { title: "Printed Ribbon", bg: "bg-blue-600" },
-          { title: "Paper Bag", bg: "bg-pink-600" },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className={`${item.bg} text-white px-6 py-4 rounded-2xl shadow-xl font-semibold text-base sm:text-lg md:text-xl text-center transition transform hover:scale-105 w-[220px] h-[100px] flex items-center mt-10 group-focus:justify-center`}
-          >
-            {item.title}
-          </div>
-        ))}
-      </section>
+      <section className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-white">      
+  {[
+    { title: "Custom Labels", bg: "bg-red-600" },
+    { title: "Hand Tag", bg: "bg-orange-600" },
+    { title: "Printed Ribbon", bg: "bg-blue-600" },
+    { title: "Paper Bag", bg: "bg-pink-600" },
+  ].map((item, index) => (
+    <div
+      key={index} 
+      className={`${item.bg} text-white px-6 py-4 rounded-2xl shadow-xl font-semibold text-base sm:text-lg md:text-xl text-center transition transform hover:scale-105 w-[220px] h-[100px] flex justify-center items-center`}
+    >                                                              
+      {item.title}
+    </div>
+  ))}
+</section>
     </>
   );
 }

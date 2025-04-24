@@ -35,8 +35,6 @@ const CustomOrderProcess = () => {
           CUSTOM ORDER PROCESS
         </h2>
       </div>
-
-
       <div className="grid md:grid-cols-2 gap-10">
         {steps.map((item, idx) => (
           <div key={idx} className="flex gap-4 items-start">

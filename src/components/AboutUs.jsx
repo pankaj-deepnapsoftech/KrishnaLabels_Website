@@ -11,7 +11,7 @@ const AboutUs = () => {
 </h2>
 
 
-        <p className="text-gray-700 text-lg">
+        <p className="text-gray-700 mt-10 text-lg">
           <strong>“Krishna Labels INC”</strong> has been incepted in the year 2010 and since then every day are efficiently engaged in manufacturing and exporting superior quality products to our clients. We have been famed quality in maintaining our line of products which includes Clothing Labels & Tags, Printed & Woven Labels and Barcode Stickers. All these products are served based on clients specifications. We have a team of quality analyst to check the quality of our products and we also hold an expertise in the fabrication of all our ranges.
         </p>
 
@@ -20,11 +20,11 @@ const AboutUs = () => {
         </p>
 
         <p className="text-gray-700 text-lg">
-          With the farsightedness of our mentor <strong>Mr. Raja Mallick</strong> and with his guidance we have build for ourselves a level of high grade strategies. Our is a group of well experienced staff and their expertise that guide us how to full fill the client’s needs without any obstacles.
+          With the farsightedness of our mentor <strong> Mr. Raja Mallick</strong> and with his guidance we have build for ourselves a level of high grade strategies. Our is a group of well experienced staff and their expertise that guide us how to full fill the client’s needs without any obstacles.
         </p>
       </div>
     </div>
   );
 };
 
-export default AboutUs;
+export default AboutUs;      

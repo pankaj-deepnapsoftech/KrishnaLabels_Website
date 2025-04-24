@@ -23,7 +23,6 @@ export default function LoginPage() {
       const result = await LoginUser(form);
       console.log('Login Result:', result);
 
-      
       if (result?.token || result?.user || result) {
         toast.success('🎉 You logged in successfully!', {
           position: 'top-right',
@@ -43,56 +42,52 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-blue-100 p-6">
       <ToastContainer />
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
-        <h2 className="text-3xl font-bold text-center text-sky-800 mb-6">Login</h2>
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-10 space-y-6 animate-fade-in">
+        <h2 className="text-4xl font-bold text-center text-sky-800">Welcome Back</h2>
+        <p className="text-center text-gray-500">Please enter your credentials to login</p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block mb-1 text-gray-700 font-medium">Email</label>
+            <label className="block text-gray-700 font-medium mb-2">Email address</label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-0"
-              placeholder="Enter your email"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-sky-600 transition"
+              placeholder="example@email.com"
               required
             />
           </div>
 
           <div className="relative">
-            <label className="block mb-1 text-gray-700 font-medium">Password</label>
+            <label className="block text-gray-700 font-medium mb-2">Password</label>
             <input
               type={showPassword ? 'text' : 'password'}
               name="password"
               value={form.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-0 pr-10"
-              placeholder="Enter your password"
+              className="w-full px-4 py-3 pr-10 rounded-xl border border-gray-300 focus:outline-none focus:border-sky-500 transition"
+              placeholder="••••••••"
               required
             />
-            <button
-              type="button"
+            <div
               onClick={togglePassword}
-              className="absolute top-8 right-3 text-gray-500"
+              className="absolute top-9 right-4 text-gray-500"
             >
               {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-            </button>
+            </div>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-sky-800 hover:bg-sky-900 text-white py-2 rounded-lg transition duration-300"
+            className="w-full py-3 bg-sky-700 hover:bg-sky-900 text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
           >
             Login
           </button>
         </form>
-
-        <p className="mt-4 text-center text-sm text-gray-600">
-          Don't have an account?{' '}
-          <span className="text-sky-800 font-semibold cursor-pointer hover:underline">Sign up</span>
-        </p>
       </div>
     </div>
   );

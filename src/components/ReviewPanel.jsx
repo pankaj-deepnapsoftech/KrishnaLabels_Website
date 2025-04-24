@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X } from "lucide-react"; 
+import { X } from "lucide-react";
 
 const ReviewPanel = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,6 @@ const ReviewPanel = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        
         <div className="flex justify-end p-4 border-b">
           <button
             onClick={() => setIsOpen(false)}
@@ -30,7 +29,7 @@ const ReviewPanel = () => {
 
         <div className="p-6 h-[calc(100%-64px)] overflow-y-auto">
           <h2 className="text-xl font-bold mb-4">Customer Testimonials</h2>
-         
+
           <div className="space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="border p-4 rounded shadow">
