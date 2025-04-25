@@ -1,23 +1,43 @@
 import React, { useState } from "react";
 import { FiUpload } from 'react-icons/fi';
-import { motion } from "motion/react";
+// import { motion } from "framer-motion";
 import { useFormik } from "formik";
-import { ContactValidationSchema } from "../validation/contact.validation";
+import CreateProductValidationSchema from "../validation/CreateProductValidationSchema";
+
 const CreateProduct = () => {
-  const [preview,setPreview] = useState(null)
-  const {values,touched,errors,handleBlur,handleChange,handleSubmit,setFieldValue} = useFormik({
-    initialValues:{product_name:"",description:"",price:"",color:"",image:""},
-    validationSchema:ContactValidationSchema,
-  })
+  const [preview, setPreview] = useState(null);
+
+  const {
+    values,
+    touched,
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      product_name: "",
+      description: "",
+      price: "",
+      color: "",
+      image: "",
+    },
+    validationSchema: CreateProductValidationSchema,
+    onSubmit: (values) => {
+      console.log("Form submitted", values);
+      // Handle your product submission logic here
+    },
+  });
 
   return (
-    <div className="w-full  flex  h-[100%] justify-center  bg-gray-100 px-2 ">
-      <div className="w-full max-w-[700px] mt-10 h-[80%] bg-white shadow-md rounded-lg  p-6 pt-10  max-[800px]:mt-18">
+    <div className="w-full flex h-[100%] justify-center bg-gray-100 px-2">
+      <div className="w-full max-w-[700px] mt-10 bg-white shadow-md rounded-lg p-6 pt-10">
         <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
           CREATE PRODUCT
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4 shadow-3xl">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Product Name */}
           <div>
             <label className="block text-sm text-gray-700 mb-1">
@@ -30,46 +50,54 @@ const CreateProduct = () => {
               onBlur={handleBlur}
               onChange={handleChange}
               placeholder="Enter product name"
-              className="w-full px-2 py-2 border-b border-gray-300  focus:border-sky-500 focus:outline-none"
+              className="w-full px-2 py-2 border-b border-gray-300 focus:border-sky-500 focus:outline-none"
             />
-            {touched.product_name && errors.product_name && <p className="text-red-400  ">{errors.product_name}</p>}
+            {touched.product_name && errors.product_name && (
+              <p className="text-red-400">{errors.product_name}</p>
+            )}
           </div>
 
           {/* Image Upload */}
           <div>
-            <label className="block text-sm text-gray-700 mb-3">
-              Upload Image
-            </label>
+            <label className="block text-sm text-gray-700 mb-3">Upload Image</label>
             <label
-              htmlFor="productImage"
+              htmlFor="image"
               className="flex items-center gap-2 justify-center px-3 py-2 border-2 border-dashed border-gray-300 rounded-md cursor-pointer hover:border-sky-800 hover:bg-gray-50 transition duration-300"
             >
               <FiUpload className="text-lg text-sky-800" />
-             
+              Upload
               <input
-                id="productImage"
-                name="productImage"
+                id="image"
+                name="image"
                 type="file"
                 accept="image/*"
-                onChange={(e)=>{setFieldValue('image',e.target.files[0]);
-                const pre = URL.createObjectURL(e.target.files[0]);
-                  setPreview(pre)  
-              }}
+                onChange={(e) => {
+                  setFieldValue("image", e.currentTarget.files[0]);
+                  const pre = URL.createObjectURL(e.currentTarget.files[0]);
+                  setPreview(pre);
+                }}
                 onBlur={handleBlur}
                 className="hidden"
               />
             </label>
-            <div className="h-10 flex justify-end py-2 ">
-              <motion.img src={preview} className="h-20 text-end rounded )  " whileHover={{scale:1.1}} />
+            <div className="h-20 flex justify-end py-2">
+              {preview && (
+                <motion.img
+                  src={preview}
+                  alt="Preview"
+                  className="h-20 rounded"
+                  whileHover={{ scale: 1.1 }}
+                />
+              )}
             </div>
-            {touched.image && errors.image && <p className="text-red-400  ">{errors.image}</p>}
+            {touched.image && errors.image && (
+              <p className="text-red-400">{errors.image}</p>
+            )}
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Description
-            </label>
+            <label className="block text-sm text-gray-700 mb-1">Description</label>
             <textarea
               name="description"
               rows="3"
@@ -77,16 +105,16 @@ const CreateProduct = () => {
               onBlur={handleBlur}
               onChange={handleChange}
               placeholder="Short product description..."
-              className="w-full px-2 py-1 border-b border-gray-300  focus:border-sky-500 focus:outline-none"
+              className="w-full px-2 py-1 border-b border-gray-300 focus:border-sky-500 focus:outline-none"
             ></textarea>
-            {touched.description && errors.description && <p className="text-red-500">{errors.description}</p>}
+            {touched.description && errors.description && (
+              <p className="text-red-500">{errors.description}</p>
+            )}
           </div>
 
           {/* Price */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Price 
-            </label>
+            <label className="block text-sm text-gray-700 mb-1">Price</label>
             <input
               type="number"
               name="price"
@@ -94,16 +122,16 @@ const CreateProduct = () => {
               onBlur={handleBlur}
               onChange={handleChange}
               placeholder="Enter price"
-              className="w-full px-2 py-1 border-b border-gray-300  focus:border-sky-500 focus:outline-none"
+              className="w-full px-2 py-1 border-b border-gray-300 focus:border-sky-500 focus:outline-none"
             />
-            {touched.price && errors.price && <p className="text-red-400  ">{errors.price}</p>}
+            {touched.price && errors.price && (
+              <p className="text-red-400">{errors.price}</p>
+            )}
           </div>
 
           {/* Color */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Color
-            </label>
+            <label className="block text-sm text-gray-700 mb-1">Color</label>
             <input
               type="text"
               name="color"
@@ -111,7 +139,7 @@ const CreateProduct = () => {
               onBlur={handleBlur}
               onChange={handleChange}
               placeholder="e.g., Red, Blue"
-              className="w-full px-2 py-1 border-b border-gray-300  focus:border-sky-500 focus:outline-none"
+              className="w-full px-2 py-1 border-b border-gray-300 focus:border-sky-500 focus:outline-none"
             />
           </div>
 
@@ -119,8 +147,8 @@ const CreateProduct = () => {
           <div>
             <motion.button
               type="submit"
-              className="w-full py-2 bg-sky-800  text-white rounded hover:bg-sky-700 transition focus-visible:outline-none"
-              whileTap={{scale:0.9}}
+              className="w-full py-2 bg-sky-800 text-white rounded hover:bg-sky-700 transition"
+              whileTap={{ scale: 0.95 }}
             >
               Create Product
             </motion.button>
