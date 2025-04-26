@@ -36,6 +36,7 @@ const CreateProduct = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Product Name */}
           <div>
             <label className="block text-lg text-gray-700 mb-1">
               Name of Product
@@ -83,7 +84,6 @@ const CreateProduct = () => {
                   src={preview}
                   alt="Preview"
                   className="h-40 rounded"
-
                 />
               )}
             </div>
@@ -140,12 +140,11 @@ const CreateProduct = () => {
             />
           </div>
 
-          {/* Submit */}
+          {/* Submit Button */}
           <div>
             <button
               type="submit"
               className="w-full py-2 bg-sky-800 text-white rounded hover:bg-sky-700 transition"
-              whileTap={{ scale: 0.95 }}
             >
               Create Product
             </button>

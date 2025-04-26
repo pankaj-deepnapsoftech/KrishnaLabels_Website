@@ -1,5 +1,5 @@
 import React from "react";
-import { useLeadContext } from "../context/LeadContext/leadContext";
+import { useLeadContext } from "../context/leadContext/leadContext";
 import { useFormik } from "formik";
 import bookDemoValidation from "../validation/bookDemoValidation";
 
@@ -14,11 +14,11 @@ const BookDemo = () => {
       purpose: "",
     },
     validationSchema: bookDemoValidation,
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
-        formik.handleReset();
         await createLead(values);
         alert("Demo booked successfully!");
+        resetForm();
       } catch (error) {
         console.error(error);
         alert("Something went wrong. Please try again.");
@@ -29,13 +29,14 @@ const BookDemo = () => {
   return (
     <div className="min-h-screen mt-40 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-16">
       <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-blue-200">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-8 text-center">
           <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
-            Book a free demo
+            Book a Free Demo
           </span>
         </h2>
 
         <form className="grid grid-cols-1 gap-6" onSubmit={formik.handleSubmit}>
+          {/* Full Name */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Full Name <span className="text-red-500">*</span>
@@ -54,6 +55,7 @@ const BookDemo = () => {
             )}
           </div>
 
+          {/* Phone Number */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Contact Number <span className="text-red-500">*</span>
@@ -72,6 +74,7 @@ const BookDemo = () => {
             )}
           </div>
 
+          {/* Email Address */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Email Address <span className="text-red-500">*</span>
@@ -90,6 +93,7 @@ const BookDemo = () => {
             )}
           </div>
 
+          {/* Purpose */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Purpose <span className="text-red-500">*</span>
@@ -108,6 +112,7 @@ const BookDemo = () => {
             )}
           </div>
 
+          {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
