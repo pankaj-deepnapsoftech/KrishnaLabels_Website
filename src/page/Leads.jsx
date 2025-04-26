@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { LeadContext } from "../context/LeadContext/LeadContext";
+import { LeadContext } from "../context/leadContext/leadContext";
 
 const Leads = () => {
  const {leadData}  = useContext(LeadContext);

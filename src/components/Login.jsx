@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useAuthContext } from '../context/authContext/authContext';
-import { useNavigate, NavLink } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   const { LoginUser } = useAuthContext();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ email: '', password: '' });
 
@@ -17,20 +18,9 @@ export default function LoginPage() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const user = await LoginUser(form); // LoginUser should return a user object on success
-      console.log(user);
-      if (user) {
-        // Successful login, redirect to the dashboard
-        navigate('/dashboard');
-      } else {
-        console.log('Login failed: Invalid credentials');
-      }
-    } catch (error) {
-      console.log('Login error:', error);
-    }
+    LoginUser(form);
   };
 
   return (

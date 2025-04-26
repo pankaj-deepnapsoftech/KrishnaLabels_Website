@@ -4,20 +4,21 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import AuthContextProvider from "./context/authContext/authContext";
-import LeadProvider from "./context/LeadContext/LeadContext.jsx";
-import ContactContextProvider from "./context/ContactContext/ContactContext.jsx";
+import ContactContextProvider from "./context/contactContext/contactContext";
 import { BrowserRouter } from "react-router-dom";
+import { LeadProvider } from "./context/leadContext/leadContext";
+
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <StrictMode>                                                                   
     <BrowserRouter>
-    <AuthContextProvider>
-      <ContactContextProvider>
-        <LeadProvider>
-          <App />
-        </LeadProvider>
-      </ContactContextProvider>
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <ContactContextProvider>
+          <LeadProvider>
+            <App />
+          </LeadProvider>
+        </ContactContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </StrictMode>
 );

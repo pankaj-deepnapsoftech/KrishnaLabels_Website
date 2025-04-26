@@ -1,5 +1,5 @@
 import React from "react";
-import { useContactContext } from "../context/ContactContext/ContactContext";
+import { useContactContext } from "../context/contactContext/contactContext";
 
 const AdminContact = () => {
   const { data } = useContactContext();
