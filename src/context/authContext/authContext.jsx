@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect,useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { axiosHandler } from "../../utils/axiosHandler";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
@@ -7,13 +7,13 @@ const authContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [user,setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   const LogedInUser = async () => {
     try {
       const res = await axiosHandler.get("/auth/logedin-user");
       setUser(res.data.data);
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -29,14 +29,23 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const Logout = async () => {
+    try {
+      const res = await axiosHandler.get("/auth/logout");
+      toast.success(res.data.message || "Login successful");
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
-  useEffect(()=>{
+
+  useEffect(() => {
     LogedInUser()
-  },[])
+  }, [])
 
   return (
-    <authContext.Provider value={{ LoginUser,LogedInUser,user }}>
+    <authContext.Provider value={{ LoginUser, LogedInUser, user,Logout }}>
       {children}
     </authContext.Provider>
   );

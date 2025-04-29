@@ -15,6 +15,7 @@ import BookDemo from "../components/BookDemo";
 import OurProduct from "../components/OurProduct";
 import LoginPage from "../components/Login";
 import AdminContact from "../page/ContactData";
+import NotFound from "../components/PageNotFound";
 import {useAuthContext} from "../context/authContext/authContext"
 
 const AppRoute = () => {
@@ -40,6 +41,7 @@ const AppRoute = () => {
                 <Route path="/createproduct" element={<CreateProduct/>} />
                 <Route path="/producttable" element={<ProductTable/>} />
             </Route> }
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 };
