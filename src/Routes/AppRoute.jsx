@@ -15,8 +15,12 @@ import BookDemo from "../components/BookDemo";
 import OurProduct from "../components/OurProduct";
 import LoginPage from "../components/Login";
 import AdminContact from "../page/ContactData";
+import {useAuthContext} from "../context/authContext/authContext"
 
 const AppRoute = () => {
+
+    const {user} = useAuthContext()
+
     return (
         <Routes>
             <Route element={<WebLayout />}>
@@ -29,13 +33,13 @@ const AppRoute = () => {
                 <Route path="/products" element={<OurProduct/>}/>
             </Route>
                <Route path="/login" element={<LoginPage/>}/> 
-            <Route element={<AdminLayout />}>
+            {user  ? <Route element={<AdminLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/leets" element={<Leets/>} />
                 <Route path="/admincontact" element={<AdminContact/>} />
                 <Route path="/createproduct" element={<CreateProduct/>} />
                 <Route path="/producttable" element={<ProductTable/>} />
-            </Route>
+            </Route> :  <Route path="/login" element={<LoginPage/>}/> }
         </Routes>
     );
 };
