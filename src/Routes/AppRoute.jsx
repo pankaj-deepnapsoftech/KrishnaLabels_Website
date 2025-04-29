@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Navigate  } from "react-router-dom";
 import WebLayout from "./WebLayout";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
@@ -33,13 +33,13 @@ const AppRoute = () => {
                 <Route path="/products" element={<OurProduct/>}/>
             </Route>
                <Route path="/login" element={<LoginPage/>}/> 
-            {user  ? <Route element={<AdminLayout />}>
+            {user  && <Route element={<AdminLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/leets" element={<Leets/>} />
                 <Route path="/admincontact" element={<AdminContact/>} />
                 <Route path="/createproduct" element={<CreateProduct/>} />
                 <Route path="/producttable" element={<ProductTable/>} />
-            </Route> :  <Route path="/login" element={<LoginPage/>}/> }
+            </Route> }
         </Routes>
     );
 };

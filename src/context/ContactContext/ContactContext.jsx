@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { axiosHandler } from "../../utils/axiosHandler";
+import { useAuthContext } from "../authContext/authContext"
 
 const ContactContext = createContext();
 
 const ContactContextProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const { user } = useAuthContext();
 
 
   const getContactData = async () => {
@@ -18,8 +20,10 @@ const ContactContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    getContactData()
-  }, []);
+    if (user) {
+      getContactData()
+    }
+  }, [user]);
 
   return (
     <ContactContext.Provider value={{ data }}>
