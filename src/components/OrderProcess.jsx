@@ -28,7 +28,7 @@ const steps = [
 ];
 
 const CustomOrderProcess = () => {
-  return (
+  return ( 
     <section className="py-10 px-4 md:px-20 bg-white">
       <div className="flex justify-center">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white bg-blue-800 inline-block px-6 py-2 rounded-2xl mb-10">

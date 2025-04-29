@@ -29,7 +29,6 @@ const RatingsReviews = () => {
     const interval = setInterval(() => {
       if (scrollRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
           scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
@@ -47,7 +46,7 @@ const RatingsReviews = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-white">
       <div className="flex justify-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white bg-blue-800 inline-block px-6 py-2 rounded-2xl mb-6">
           Welcome Our Reviews
@@ -55,7 +54,7 @@ const RatingsReviews = () => {
       </div>
 
       <div className="flex justify-center">
-        <h3 className="text-sky-600 text-center font-semibold pb-5 text-sm sm:text-base">
+        <h3 className="text-blue-600 text-center font-semibold pb-5 text-sm sm:text-base">
           Real reviews from real customers
         </h3>
       </div>
@@ -65,7 +64,7 @@ const RatingsReviews = () => {
           <div className="text-3xl sm:text-4xl font-bold text-yellow-500">
             4.2<span className="text-black text-xl sm:text-2xl">/5</span>
           </div>
-          <div className="text-sm text-gray-600">Reviewed by 119 Users</div>
+          <div className="text-sm text-gray-700">Reviewed by 119 Users</div>
         </div>
 
         <div className="flex-1">
@@ -87,7 +86,7 @@ const RatingsReviews = () => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">User Satisfaction</h3>
+          <h3 className="text-lg font-semibold mb-2 text-black">User Satisfaction</h3>
           {[
             { label: "Response", percent: 84 },
             { label: "Quality", percent: 77 },
@@ -95,8 +94,8 @@ const RatingsReviews = () => {
           ].map(({ label, percent }) => (
             <div key={label} className="mb-2">
               <div className="flex justify-between text-sm">
-                <span>{label}</span>
-                <span>{percent}%</span>
+                <span className="text-black">{label}</span>
+                <span className="text-black">{percent}%</span>
               </div>
               <div className="w-full bg-gray-200 h-2 rounded-full">
                 <div
@@ -109,7 +108,7 @@ const RatingsReviews = () => {
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold mb-4 text-center md:text-left">
+      <h3 className="text-xl font-semibold mb-4 text-center md:text-left text-black">
         Most Relevant Reviews
       </h3>
 
@@ -170,24 +169,24 @@ const RatingsReviews = () => {
           ].map(({ name, location, date, product, content }, i) => (
             <div
               key={i}
-              className="bg-gray-50 min-w-[260px] sm:min-w-[300px] p-4 rounded-xl shadow-sm"
+              className="bg-white min-w-[260px] sm:min-w-[300px] p-4 rounded-xl shadow-sm"
             >
               <div className="flex items-center mb-2">
                 <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center font-bold text-white">
                   {name[0]}
                 </div>
                 <div className="ml-3">
-                  <div className="font-semibold text-sm sm:text-base">
+                  <div className="font-semibold text-sm sm:text-base text-black">
                     {name}
                   </div>
-                  <div className="text-xs text-gray-500">{location}</div>
+                  <div className="text-xs text-gray-700">{location}</div>
                 </div>
               </div>
-              <div className="text-xs text-gray-500 mb-2">{date}</div>
-              <div className="text-sm mb-1">
+              <div className="text-xs text-gray-700 mb-2">{date}</div>
+              <div className="text-sm mb-1 text-black">
                 <span className="font-medium">Product Name</span>: {product}
               </div>
-              {content && <div className="text-sm">{content}</div>}
+              {content && <div className="text-sm text-black">{content}</div>}
             </div>
           ))}
         </div>

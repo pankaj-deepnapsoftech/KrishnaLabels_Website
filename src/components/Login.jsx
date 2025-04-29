@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useAuthContext } from '../context/authContext/authContext';
-// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Added
 
 export default function LoginPage() {
   const { LoginUser } = useAuthContext();
-  // const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ email: '', password: '' });
 
@@ -68,6 +66,15 @@ export default function LoginPage() {
           >
             Login
           </button>
+
+          <div className="text-center mt-4">
+            <Link
+              to="/"
+              className="text-sky-700 hover:text-sky-900 font-medium underline hover:underline-offset-4 transition-all duration-200"
+            >
+              ← Back to Home Page
+            </Link>
+          </div>
         </form>
       </div>
     </div>
