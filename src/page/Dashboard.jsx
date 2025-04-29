@@ -19,7 +19,6 @@ const dataCards = [
     color: "from-cyan-400 to-cyan-600",
   },
 
-
   {
     title: "Total Profit",
     amount: "$25,000",
@@ -27,7 +26,6 @@ const dataCards = [
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde. At asperiores provident, nam dolor",
     color: "from-pink-400 to-pink-600",
   },
-
 ];
 
 export default function Dashboard() {
@@ -40,7 +38,6 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Cards Section */}
       <section className="flex flex-wrap max-[800px]:justify-center gap-6 px-4 py-10">
         {dataCards.map((card, i) => (
           <div

@@ -25,13 +25,13 @@ export default function HeroSection() {
             At <strong>KRISHNA LABELS INC</strong>, we’ve spent over 17 years
             helping brands bring their identity to life through premium,
             custom-made garment accessories. From woven labels, printed labels,
-            tags, satin ribbons to paper bags—each item is crafted with
+            tags, satin ribbons to paper bags — each item is crafted with
             precision.
             <br />
             <br />
             Whether you're a fashion brand or boutique, we provide tailored
             solutions that blend style and sustainability. We don’t just make
-            accessories—we enhance brands.
+            accessories — we enhance brands.
           </p>
    
           <a

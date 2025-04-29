@@ -18,23 +18,29 @@ const NavBar = () => {
   return (
     <div className="w-full fixed top-0 left-0 z-50">
       <div className="bg-gray-900 text-lime-400 text-xs sm:text-sm flex justify-between items-center px-4 sm:px-6 py-2">
-        <div className="text-center">
+        <div className="text-center w-full sm:w-auto">
           Get your proofs in 24 hours for FREE with fast delivery guaranteed!
         </div>
-        <div className="hidden sm:flex items-center gap-4 text-white text-sm">
+
+        <div className="flex items-center gap-4 text-white text-xs sm:text-sm ml-2">
           <span className="text-lime-400 font-semibold">+1-800-866-0212</span>
           <Link
-  to="/login"
-  className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-lime-400 transition duration-200"
->
-  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-    <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm1 2H9a4 4 0 00-4 4v1h10v-1a4 4 0 00-4-4z" />
-  </svg>
-  LOG IN
-</Link>
+            to="/login"
+            className="flex items-center gap-1 text-xs sm:text-sm font-medium text-gray-300 hover:text-lime-400 transition duration-200"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm1 2H9a4 4 0 00-4 4v1h10v-1a4 4 0 00-4-4z" />
+            </svg>
+            LOG IN
+          </Link>
         </div>
       </div>
-      
+
       <nav className="bg-white px-4 sm:px-6 py-3 shadow-md">
         <div className="flex items-center justify-between">
           <Link to="/">
@@ -69,7 +75,7 @@ const NavBar = () => {
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
-                  <path 
+                  <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
@@ -80,8 +86,6 @@ const NavBar = () => {
             </button>
           </div>
         </div>
-
-        
         <ul
           className={`${
             isMenuOpen ? "flex" : "hidden"
@@ -102,12 +106,12 @@ const NavBar = () => {
               </Link>
             </li>
           ))}
-          
+
           <li className="block md:hidden">
             <button
               onClick={() => {
                 navigate("/BookDemo");
-                setIsMenuOpen(false); 
+                setIsMenuOpen(false);
               }}
               className="bg-lime-600 text-black px-4 py-2 text-sm font-bold rounded hover:bg-lime-500 transition"
             >
@@ -121,3 +125,6 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+

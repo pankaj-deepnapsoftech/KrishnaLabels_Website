@@ -14,7 +14,7 @@ const qualitySteps = [
     image: "/logo-10.png",
   },
   {
-    
+
     image: "/logo-12.png",
   },
 ];
@@ -51,7 +51,7 @@ const QualityControl = () => {
           delivery.
         </p>
       </div>
-
+      
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {qualitySteps.map((step, index) => (
           <div key={index} className="text-center">
