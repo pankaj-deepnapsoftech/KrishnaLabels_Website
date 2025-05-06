@@ -33,6 +33,8 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axiosHandler.get("/auth/logout");
       toast.success(res.data.message || "Login successful");
+      navigate("/")
+      setUser(null)
     } catch (error) {
       console.log(error)
     }

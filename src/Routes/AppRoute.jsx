@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes,Navigate  } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import WebLayout from "./WebLayout";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
@@ -16,13 +16,13 @@ import OurProduct from "../components/OurProduct";
 import LoginPage from "../components/Login";
 import AdminContact from "../page/ContactData";
 import NotFound from "../components/PageNotFound";
-import {useAuthContext} from "../context/authContext/authContext"
+import { useAuthContext } from "../context/authContext/authContext"
 import ProductDetail from "../components/ProductDetail";
 
 
 const AppRoute = () => {
 
-    const {user} = useAuthContext()
+    const { user } = useAuthContext()
 
     return (
         <Routes>
@@ -31,19 +31,19 @@ const AppRoute = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blog" element={<BlogHome />} />
                 <Route path="/about" element={<AboutUs />} />
-                <Route path="/allReviews" element={<AllReviews />}/>
-                <Route path="/bookDemo" element={<BookDemo/>}/>
-          </Route>
-            <Route path="/products" element={<OurProduct/>}/>
-            <Route path="/products-details" element={<ProductDetail/>}/>
-               <Route path="/login" element={<LoginPage/>}/> 
-            {user  && <Route element={<AdminLayout />}>
+                <Route path="/allReviews" element={<AllReviews />} />
+                <Route path="/bookDemo" element={<BookDemo />} />
+            </Route>
+            <Route path="/products" element={<OurProduct />} />
+            <Route path="/products-details" element={<ProductDetail />} />
+
+            {user ? <Route element={<AdminLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/leets" element={<Leets/>} />
-                <Route path="/admincontact" element={<AdminContact/>} />
-                <Route path="/createproduct" element={<CreateProduct/>} />
-                <Route path="/producttable" element={<ProductTable/>} />
-            </Route> }
+                <Route path="/leets" element={<Leets />} />
+                <Route path="/admincontact" element={<AdminContact />} />
+                <Route path="/createproduct" element={<CreateProduct />} />
+                <Route path="/producttable" element={<ProductTable />} />
+            </Route> : <Route path="/login" element={<LoginPage />} />}
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

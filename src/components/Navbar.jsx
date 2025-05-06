@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/authContext/authContext";
 
 const navItems = [
   { label: "Shop", icon: "/Shopp.png", path: "/" },
@@ -13,6 +14,7 @@ const navItems = [
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user} = useAuthContext()
   const navigate = useNavigate();
 
   return (
@@ -26,7 +28,7 @@ const NavBar = () => {
           <a href="tel:9911062762" className="text-lime-400 font-semibold">
             +91 9911062762
           </a>
-          <Link
+          {user ? <Link to="/dashboard" >Dashbord</Link> :<Link
             to="/login"
             className="flex items-center gap-1 text-xs sm:text-sm font-medium text-gray-300 hover:text-lime-400 transition duration-200"
           >
@@ -39,7 +41,7 @@ const NavBar = () => {
               <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm1 2H9a4 4 0 00-4 4v1h10v-1a4 4 0 00-4-4z" />
             </svg>
             LOG IN
-          </Link>
+          </Link>}
         </div>
       </div>
 

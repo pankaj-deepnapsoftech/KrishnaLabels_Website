@@ -10,10 +10,12 @@ import { FaTableList } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../context/authContext/authContext";
 
 const Header = () => {
   const [checkMenu, setCheckMenu] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
+  const {Logout} = useAuthContext()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,8 +31,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    // Add your logout logic here (e.g., clearing tokens, redirect)
-    alert("Logged out!");
+    Logout()
   };
 
   return (
