@@ -8,6 +8,7 @@ import { axiosHandler } from "../../utils/axiosHandler";
 
 import { useAuthContext } from "../authContext/authContext"
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const LeadContext = createContext();
 
 const LeadProvider = ({ children }) => {
@@ -51,4 +52,5 @@ const LeadProvider = ({ children }) => {
 export default LeadProvider;
 
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLeadContext = () => useContext(LeadContext);
