@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FiUpload } from 'react-icons/fi';
 import { useFormik } from "formik";
 import CreateProductValidationSchema from "../validation/CreateProductValidationSchema";
+import { ProductContext } from "../context/productContext/ProductContext";
 
 const CreateProduct = () => {
   const [preview, setPreview] = useState(null);
+  const { createProduct } = useContext(ProductContext);
 
   const {
     values,
@@ -14,17 +16,36 @@ const CreateProduct = () => {
     handleChange,
     handleSubmit,
     setFieldValue,
+    resetForm,
   } = useFormik({
     initialValues: {
       product_name: "",
       description: "",
       price: "",
       color: "",
-      image: "",
+      image: null,
     },
     validationSchema: CreateProductValidationSchema,
-    onSubmit: (values) => {
-      console.log("Form submitted", values);
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const formData = new FormData();
+        formData.append("product_name", values.product_name);
+        formData.append("description", values.description);
+        formData.append("price", values.price);
+        formData.append("color", values.color);
+        formData.append("image", values.image);
+
+        await createProduct(formData); 
+        alert("Product created successfully!");
+
+        resetForm();
+        setPreview(null);
+      } catch (error) {
+        console.error("Product creation failed:", error);
+        alert("Failed to create product. Try again.");
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
 
@@ -38,9 +59,7 @@ const CreateProduct = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Product Name */}
           <div>
-            <label className="block text-lg text-gray-700 mb-1">
-              Name of Product
-            </label>
+            <label className="block text-lg text-gray-700 mb-1">Name of Product</label>
             <input
               type="text"
               name="product_name"
@@ -79,13 +98,7 @@ const CreateProduct = () => {
               />
             </label>
             <div className="h-20 flex justify-start py-2">
-              {preview && (
-                <img
-                  src={preview}
-                  alt="Preview"
-                  className="h-40 rounded"
-                />
-              )}
+              {preview && <img src={preview} alt="Preview" className="h-40 rounded" />}
             </div>
             {touched.image && errors.image && (
               <p className="text-red-400">{errors.image}</p>

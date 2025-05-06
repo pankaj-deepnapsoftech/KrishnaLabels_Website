@@ -4,14 +4,12 @@ html, body, #root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 html,
 body,
 #root {
   height: 100%;
-  
 }
 
 :root {
@@ -20,7 +18,7 @@ body,
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 254, 254, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -30,8 +28,7 @@ body,
 }
 
 a:not(.text-white) {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 700;
   text-decoration: inherit;
 }
 
@@ -59,9 +56,6 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
-  border-color: #646cff;
-}
 
 button:focus,
 button:focus-visible {
@@ -72,6 +66,5 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-  
+  } 
 }

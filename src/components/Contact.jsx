@@ -22,7 +22,7 @@ const Contact = () => {
   });
 
   return (
-    <div className="min-h-screen mt-40 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-16">
+    <div className="min-h-screen mt-40 flex items-center justify-center  px-4 py-16">
       <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-blue-200">
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-6">
@@ -41,7 +41,7 @@ const Contact = () => {
             </div>
             <div>
               <p className="text-gray-700 font-semibold">Call Us:</p>
-              <p className="text-gray-600">08048977061</p>
+              <p className="text-gray-600">+91 9911062762</p>
             </div>
           </div>
 

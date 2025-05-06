@@ -19,11 +19,13 @@ const NavBar = () => {
     <div className="w-full fixed top-0 left-0 z-50">
       <div className="bg-gray-900 text-lime-400 text-xs sm:text-sm flex justify-between items-center px-4 sm:px-6 py-2">
         <div className="text-center w-full sm:w-auto">
-          Get your proofs in 24 hours for FREE with fast delivery guaranteed!
+          EXTRAORDINARY PRODUCT TO ENHANCE YOUR BRAND
         </div>
 
         <div className="flex items-center gap-4 text-white text-xs sm:text-sm ml-2">
-          <span className="text-lime-400 font-semibold">+1-800-866-0212</span>
+          <a href="tel:9911062762" className="text-lime-400 font-semibold">
+            +91 9911062762
+          </a>
           <Link
             to="/login"
             className="flex items-center gap-1 text-xs sm:text-sm font-medium text-gray-300 hover:text-lime-400 transition duration-200"
@@ -125,6 +127,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
-

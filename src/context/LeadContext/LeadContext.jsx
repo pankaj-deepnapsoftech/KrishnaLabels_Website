@@ -1,11 +1,20 @@
-/* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useEffect, useState, useContext } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useContext,
+} from "react";
 import { axiosHandler } from "../../utils/axiosHandler";
-                                                                              
-const LeadContext = createContext();
+
+import { useAuthContext } from "../authContext/authContext"
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const LeadContext = createContext();
 
 const LeadProvider = ({ children }) => {
   const [leadData, setLeadData] = useState([]);
+
+  const { user } = useAuthContext();
 
   const getLeadData = async () => {
     try {
@@ -28,8 +37,10 @@ const LeadProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getLeadData();
-  }, []);
+    if (user) {
+      getLeadData();
+    }
+  }, [user]);
 
   return (
     <LeadContext.Provider value={{ leadData, createLead }}>
@@ -38,7 +49,8 @@ const LeadProvider = ({ children }) => {
   );
 };
 
-const useLeadContext = () => useContext(LeadContext);
-         
+export default LeadProvider;
 
-export { LeadContext, LeadProvider, useLeadContext };  
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useLeadContext = () => useContext(LeadContext);

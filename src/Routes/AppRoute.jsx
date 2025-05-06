@@ -17,6 +17,8 @@ import LoginPage from "../components/Login";
 import AdminContact from "../page/ContactData";
 import NotFound from "../components/PageNotFound";
 import {useAuthContext} from "../context/authContext/authContext"
+import ProductDetail from "../components/ProductDetail";
+
 
 const AppRoute = () => {
 
@@ -31,8 +33,9 @@ const AppRoute = () => {
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/allReviews" element={<AllReviews />}/>
                 <Route path="/bookDemo" element={<BookDemo/>}/>
-                <Route path="/products" element={<OurProduct/>}/>
-            </Route>
+          </Route>
+            <Route path="/products" element={<OurProduct/>}/>
+            <Route path="/products-details" element={<ProductDetail/>}/>
                <Route path="/login" element={<LoginPage/>}/> 
             {user  && <Route element={<AdminLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />

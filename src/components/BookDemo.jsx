@@ -27,18 +27,19 @@ const BookDemo = () => {
   });
 
   return (
-    <div className="min-h-screen mt-40 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-16">
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-blue-200">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-8 text-center">
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
-            Book a Free Demo
-          </span>
+    <div className="min-h-screen mt-20 sm:mt-32 md:mt-40 flex items-center justify-center px-4 py-16 bg-gray-50">
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-blue-200 ">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+          Book a Free Demo
         </h2>
 
-        <form className="grid grid-cols-1 gap-6" onSubmit={formik.handleSubmit}>
+        <form
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          onSubmit={formik.handleSubmit}
+        >
           {/* Full Name */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <div className="col-span-1">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -48,7 +49,7 @@ const BookDemo = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Enter your name"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
             {formik.touched.name && formik.errors.name && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.name}</p>
@@ -56,8 +57,8 @@ const BookDemo = () => {
           </div>
 
           {/* Phone Number */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <div className="col-span-1">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Contact Number <span className="text-red-500">*</span>
             </label>
             <input
@@ -67,7 +68,7 @@ const BookDemo = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Enter your phone number"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
             {formik.touched.phone && formik.errors.phone && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.phone}</p>
@@ -75,8 +76,8 @@ const BookDemo = () => {
           </div>
 
           {/* Email Address */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <div className="col-span-1 md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email Address <span className="text-red-500">*</span>
             </label>
             <input
@@ -86,7 +87,7 @@ const BookDemo = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="you@your-email.com"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
             {formik.touched.email && formik.errors.email && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
@@ -94,8 +95,8 @@ const BookDemo = () => {
           </div>
 
           {/* Purpose */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <div className="col-span-1 md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Purpose <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -104,8 +105,8 @@ const BookDemo = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Tell us what you'd like to see in the demo..."
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
               rows="4"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm shadow resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             ></textarea>
             {formik.touched.purpose && formik.errors.purpose && (
               <p className="text-red-500 text-xs mt-1">{formik.errors.purpose}</p>
@@ -113,17 +114,17 @@ const BookDemo = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="text-center">
+          <div className="col-span-1 md:col-span-2 text-center mt-4">
             <button
               type="submit"
-              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-10 py-3 rounded-full transition duration-300 shadow-lg"
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-sm px-10 py-3 rounded-full transition duration-300 shadow-lg"
             >
               Book Demo
             </button>
           </div>
         </form>
 
-        <p className="text-xs text-center text-gray-500 mt-6">
+        <p className="text-xs text-center text-gray-500 mt-8">
           We will reach out to you within 24 hours. Your information is safe with us.
         </p>
       </div>

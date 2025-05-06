@@ -34,4 +34,5 @@ const ContactContextProvider = ({ children }) => {
 
 export default ContactContextProvider;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useContactContext = () => useContext(ContactContext);

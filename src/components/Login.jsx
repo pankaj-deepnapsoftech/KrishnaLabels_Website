@@ -56,7 +56,7 @@ export default function LoginPage() {
               onClick={togglePassword}
               className="absolute top-12 right-4 text-gray-500 cursor-pointer"
             >
-              {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+              {showPassword ? <FiEyeOff size={20} /> : < FiEye size={20} />}
             </div>
           </div>
 

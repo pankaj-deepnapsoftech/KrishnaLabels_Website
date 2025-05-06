@@ -21,14 +21,10 @@ const RatingsReviews = () => {
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowRight") scrollRight();
-      else if (e.key === "ArrowLeft") scrollLeft();
-    };
-
     const interval = setInterval(() => {
       if (scrollRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
           scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
@@ -37,12 +33,7 @@ const RatingsReviews = () => {
       }
     }, 3000);
 
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -86,7 +77,9 @@ const RatingsReviews = () => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2 text-black">User Satisfaction</h3>
+          <h3 className="text-lg font-semibold mb-2 text-black">
+            User Satisfaction
+          </h3>
           {[
             { label: "Response", percent: 84 },
             { label: "Quality", percent: 77 },

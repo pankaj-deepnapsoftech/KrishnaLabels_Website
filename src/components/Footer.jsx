@@ -1,70 +1,92 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-800 py-10 px-4 md:px-16 border-t">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <footer className="bg-gray-50 text-gray-800 py-12 px-6 md:px-20 border-t border-gray-200">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Company Info */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <img src="/logoo.png" alt="Logo" className="h-16 mb-4" />
+        </div>
 
-        <div className="flex flex-col items-center md:items-start gap-6">
-
-          <div className="flex flex-col items-center md:items-start">
-            <img src="/logoo.png" alt="Logo" className="h-14 mb-4" />
-            <img src="/rating.png" alt="Rating" className="h-12" />
-          </div>
-
-
-          <div className="text-center md:text-left w-full">
-            <h3 className="font-bold mb-3 text-lg">Get In Touch</h3>
-            <p className="text-sm font-semibold">
-              Call:{" "}
-              <a href="tel:8135416368" className="text-blue-600">
-                813-541-6368
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold text-blue-700 mb-4">Quick Links</h3>
+          <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
+            {[
+              "Woven Labels",
+              "Woven Patches",   
+              "Printed (dye-sub) Labels",
+              "Natural Cotton Labels",
+              "Satin Silkscreen Labels",
+              "Cigar Bands",
+              "Leather Labels",
+              "Pre-Cut Sewing Labels",
+              "Embroidered Craft Labels",
+              "Stock Labels (Care, Content, Size)",
+            ].map((link, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="hover:text-blue-700 transition-colors duration-200"
+              >
+                {link}
               </a>
-            </p>
-            <p className="text-sm font-semibold">
-              Email:{" "}
-              <a href="mailto:CustomLabels4U@gmail.com" className="text-blue-600">
-                CustomLabels4U@gmail.com
-              </a>
-            </p>
-            <div className="flex justify-center md:justify-start gap-4 mt-4 text-xl">
-              <a href="#"><FaFacebook className="text-blue-700 hover:scale-110 transition" /></a>
-              <a href="#"><FaInstagram className="text-pink-500 hover:scale-110 transition" /></a>
-              <a href="#"><FaTwitter className="text-black hover:scale-110 transition"/></a>
-              <a href="#"><FaLinkedin className="text-blue-500 hover:scale-110 transition" /></a>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className="text-center md:text-left">
-          <h3 className="font-bold mb-3 text-lg text-blue-700">Quick Links</h3>
-          <div className="grid grid-cols-2 gap-x-6 text-sm font-medium">
-            <ul className="space-y-1">
-              <li>Woven Labels</li>
-              <li>Woven Patches</li>
-              <li>Printed (dye-sub) Labels</li>
-              <li>Natural Cotton Labels</li>
-              <li>Satin Silkscreen Labels</li>
-            </ul>
-            <ul className="space-y-1">
-              <li>Cigar Bands</li>
-              <li>Leather Labels</li>
-              <li>Pre-Cut Sewing Labels</li>
-              <li>Embroidered Craft Labels</li>
-              <li>Stock Labels (Care, Content, Size)</li>
-            </ul>
+        {/* Contact & Social */}
+        <div className="flex flex-col items-center md:items- ml-20">
+          <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
+          <p className="text-sm mb-1 font-medium">
+            Call:{" "}
+            <a href="tel:9911062762" className="text-blue-600 hover:underline">
+              +91 9911062762
+            </a>
+          </p>
+          <p className="text-sm mb-4 font-medium">
+            Email:{" "}
+            <a
+              href="mailto:CustomLabels4U@gmail.com"
+              className="text-blue-600 hover:underline"
+            >
+              CustomLabels4U@gmail.com
+            </a> 
+          </p>
+          <div className="flex gap-4 text-2xl">
+            <a href="#" aria-label="Facebook">
+              <FaFacebook className="text-blue-700 hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <FaInstagram className="text-pink-500 hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <FaTwitter className="text-sky-500 hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <FaLinkedin className="text-blue-500 hover:scale-110 transition-transform" />
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center flex-wrap gap-6 mt-10">
+      {/* Payment Icons */}
+      <div className="flex justify-center gap-6 mt-10">
         <img src="/paytm.png" alt="Paytm" className="h-8" />
         <img src="/gpay.png" alt="GPay" className="h-8" />
         <img src="/phonepe.png" alt="PhonePe" className="h-8" />
       </div>
-      <p className="text-center text-xs font-bold mt-6 tracking-wide uppercase">
-        All Rights Reserved ©
+
+      {/* Bottom Note */}
+      <p className="text-center text-xs font-bold mt-6 tracking-wider uppercase text-gray-500">
+        &copy; {new Date().getFullYear()} All Rights Reserved
       </p>
     </footer>
   );
